@@ -8,9 +8,19 @@ use App\User;
 class UserController extends Controller
 {
     //
-    public function getUser(){
+    public function getQuestion(){
+    	return view('user.question');
+    }
 
-    	$user = User::all();
-    	return view('user.user',['user'=>$user]);
+    public function postQuestion(Request $r){
+    	
+    	$reply = $r->question;
+       
+    	return redirect('info')->with('reply',$reply);
+
+    }
+
+    public function getInfo(){
+        return view('user.info');
     }
 }

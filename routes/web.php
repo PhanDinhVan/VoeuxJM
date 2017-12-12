@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users','UserController@getUser');
+Route::get('question','UserController@getQuestion');
+Route::post('question','UserController@postQuestion');
+Route::get('info','UserController@getInfo');
