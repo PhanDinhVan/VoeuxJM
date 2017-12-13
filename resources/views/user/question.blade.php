@@ -225,12 +225,8 @@
 
 		<form action="question" method="POST" id="signupform">
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
-
-			<div class="form-group">
-                <p class="question">What is the name of the founder of the Martin’s Finest Drinks company in 1909?</p>
-            </div>
 			
-			
+			<p class="question">What is the name of the founder of the Martin’s Finest Drinks company in 1909?</p>
 			<ul class="answers">
 				<p class='containerp'>
 					<label class="size">
