@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('question','UserController@getQuestion');
 Route::post('question','UserController@postQuestion');
-Route::get('info','UserController@getInfo');
+// Route::get('info','UserController@getInfo');
+
+Route::resource('user','UserController');
+Route::get('user/info')->name('user.info');
+Route::post('user/info','UserController@postInfo');

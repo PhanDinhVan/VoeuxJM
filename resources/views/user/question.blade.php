@@ -5,7 +5,6 @@
   <title>Question</title>
   
   
-
 <style>
 	
 	@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
@@ -44,7 +43,7 @@
 		bottom: -40px;
 		width: auto;
 		height: auto;
-		background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+		background-image: url(image/background-1.jpg);
 		background-size: cover;
 		-webkit-filter: blur(5px);
 		z-index: 0;
@@ -188,11 +187,21 @@
 	.containerp {
 		width: 100%;
 	}
+	#notification{
+		display: none;
+	}
+	.alert-success{
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
 </head>
 
@@ -200,14 +209,28 @@
   	<div class="body"></div>
 	<div class="grad"></div>
 	<div class="header">
-		<div><span class="bold">Question</span></div>
+		<div><span class="bold" style="color: white !important;">Question</span></div>
 	</div>
 	<br>
+
+	
+    
 	<div class="login">
+
+		@if(session('notification'))
+	        <div class="alert alert-success" id="notification">
+	            {{session('notification')}}
+	        </div>
+    	@endif
+
 		<form action="question" method="POST" id="signupform">
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
+
+			<div class="form-group">
+                <p class="question">What is the name of the founder of the Martin’s Finest Drinks company in 1909?</p>
+            </div>
 			
-			<p class="question">What is the name of the founder of the Martin’s Finest Drinks company in 1909?</p>
+			
 			<ul class="answers">
 				<p class='containerp'>
 					<label class="size">
@@ -218,23 +241,41 @@
 					</label><br/>
 				</p>
 			</ul>
-			<button type="submit" class="btn btn-success" >Submit <span class="glyphicon glyphicon-ok"></span></button>
+			<button type="submit" class="btn btn-success" id="submit">Submit <span class="glyphicon glyphicon-ok"></span></button>
 		</form>
+
 	</div>
 
 	
 
+    <div id="success" class="modal fade" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	        <!-- Modal content-->
+	        <div class="modal-content">
+	            <div class="modal-header alert-success">
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                <h4 class="modal-title">Success</h4>
+	            </div>
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+	            <div class="modal-body">
+	                <p>
+	                	Thank you! <br />
+						Your participation has been registered. <br />
+						The 5 winners will be contacted by the end of January 2018.
+	                </p>
+	            </div>
 
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok-circle"></span> Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 
 <script type="text/javascript">
 	
-
-	$(function()
-	{
+	$(function(){
 	    $('#signupform').validate(
 	      {
 	        rules:
@@ -264,37 +305,27 @@
 	});
 
 
-	$(function()
-  {
-    $('#myform').validate(
-      {
-        rules:
-        {
-          Color:{ required:true }
-        },
-        messages:
-        {
-          Color:
-          {
-            required:"Please select a Color<br/>"
-          }
-        },
-        errorPlacement: function(error, element) 
-        {
-            if ( element.is(":radio") ) 
-            {
-                error.appendTo( element.parents('.container') );
-            }
-            else 
-            { // This is the default behavior 
-                error.insertAfter( element );
-            }
-         }
-      });
-    
-  });
+	// $("#submit").click(function(){
+ //        $("#success").modal("show");
+ //    });
+
 
 	
+	
+	var error = document.getElementById('notification');
+    if(error != null) {
+        //err = document.getElementById('error').innerText;
+        var err = $('#notification').text();
+        //cut space
+
+        err = err.replace(/\s+/g, '');
+        
+        if(err == 'success') {
+            $('#success').modal('show');
+        }
+    }
+
+
 </script>
 
   
