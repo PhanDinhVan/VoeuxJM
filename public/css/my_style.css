@@ -1,18 +1,5 @@
-.error{
-    color: red;
-    margin-top: 1%;
-    font-weight: normal;
-}
-input.error{
-    border: 1px solid red;
-}
-select.error{
-	border: 1px solid red;
-    color: #555;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+@import url(../font/font_css.css);
+@import url(../font/fonts_css.css);
 
 .bold {
 	font-weight: bold;
@@ -41,13 +28,13 @@ body{
 
 .body{
 	position: absolute;
-	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
-	width: auto;
-	height: auto;
-	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+	background-image: url(../image/background-1.jpg);
+	background-repeat: repeat-y;
 	background-size: cover;
 	-webkit-filter: blur(5px);
 	z-index: 0;
@@ -55,71 +42,39 @@ body{
 
 .grad{
 	position: absolute;
-	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
-	width: auto;
-	height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
 	z-index: 1;
 	opacity: 0.7;
 }
 
-.header{
-	position: absolute;
-	top: calc(50% - 35px);
-	left: calc(50% - 255px);
-	z-index: 2;
-}
-
-.header div{
-	float: left;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 35px;
-	font-weight: 200;
-}
-
-.header div span{
-	color: #5379fa !important;
-}
-
 .login{
-	position: absolute;
-	top: calc(50% - 75px);
+	position: relative;
+	/*top: calc(50% - 75px);
 	left: calc(50% - 50px);
 	height: 150px;
-	width: 350px;
+	width: 350px;*/
 	padding: 10px;
 	z-index: 2;
+	/*text-align: center;*/
 }
 
 .login input[type=text]{
-	width: 250px;
+	width: 100%;
 	height: 30px;
 	background: transparent;
 	border: 1px solid rgba(255,255,255,0.6);
 	border-radius: 2px;
-	color: #fff;
+	/*color: #fff;*/
+	color: white;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	padding: 4px;
-}
-
-.login input[type=password]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	margin-top: 10px;
 }
 
 .login input[type=button]{
@@ -146,11 +101,6 @@ body{
 }
 
 .login input[type=text]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
-}
-
-.login input[type=password]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
@@ -194,9 +144,47 @@ body
 #notification{
 	display: none;
 }
+#panel-default{
+	margin-top: 25%; 
+	background-color: rgba(250,250,250,0.1);
+}
+#panel-default2{
+	margin-top: 25%; 
+	background-color: rgba(250,250,250,0.1);
+}
+#panel-title{
+	font-size: 25px; 
+	font-weight: bold;
+	color: blue;
+}
+#panel-title2{
+	font-size: 25px; 
+	font-weight: bold;
+	color: blue;
+}
+#panel-heading{
+	background-color: #99ff99;
+}
 .alert-success{
     border: 1px solid transparent;
     border-radius: 4px;
 }
+
+/*dung cho man hinh dien thoai (Responsive )*/
+@media screen and (max-width: 320px) , screen and (max-height: 568px) {
+  	.row {
+		position: relative;
+		height: 100vh;
+	}
+}
+
+
+
+/*
+@media only screen and (max-width: 320px){
+	.row {
+		position: relative;
+	}
+}*/
 
 
