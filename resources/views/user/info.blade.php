@@ -25,7 +25,7 @@
 					<input  name="last_name" placeholder="Nom" type="text"><br><br>
 					<input  name="first_name" placeholder="Prenom" type="text"><br><br>
 					<input name="email" placeholder="E-Mail" type="text"><br><br>
-					<button type="submit" class="btn btn-success" >Submit <span class="glyphicon glyphicon-send"></span></button>
+					<button type="submit" class="btn btn-success" >Submit</button>
 				</form>
 			</div>
         </div>

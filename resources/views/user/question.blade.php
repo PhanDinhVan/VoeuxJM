@@ -32,7 +32,7 @@
 							</label><br/>
 						</p>
 					</ul>
-					<button type="submit" class="btn btn-success" id="submit">Submit <span class="glyphicon glyphicon-ok"></span></button>
+					<button type="submit" class="btn btn-success" id="submit">Submit </button>
 				</form>
 			</div>
         </div>
